@@ -118,6 +118,7 @@
 
 (defn default-alert-handler
   [error fatal?]
+  (log/error error)
   (show-popup "Error" (.-message error)))
 
 (defn register-exception-handler
