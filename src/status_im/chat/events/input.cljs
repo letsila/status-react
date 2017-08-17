@@ -20,7 +20,7 @@
   and returns map with keys :db (new db with up-to-date suggestions) and (optionally)
   :chat-fx/call-jail-function with jail function call params, if request to jail needs
   to be made as a result of suggestions update."
-  [{:keys [chats current-chat-id] :as db}]
+  [{:keys [chats current-chat-id current-account-id local-storage] :as db}]
   (let [chat-text       (str/trim (or (get-in chats [current-chat-id :input-text]) ""))
         requests        (->> (suggestions/get-request-suggestions db chat-text)
                              (remove (fn [{:keys [type]}]
@@ -36,16 +36,16 @@
                           true (assoc-in [:chats current-chat-id :command-suggestions] all-commands)
                           (and dapp?
                                (str/blank? chat-text))
-                          (assoc-in [:chats current-chat-id :parameter-box :message] nil))]
+                          (assoc-in [:chats current-chat-id :parameter-boxes :message] nil))]
     (cond-> {:db new-db}
-      (when (and dapp?
-                 (not (str/blank? chat-text))
-                 (every? empty? [requests commands])))
+      (and dapp?
+           (not (str/blank? chat-text))
+           (every? empty? [requests commands]))
       (assoc :chat-fx/call-jail-function {:chat-id    current-chat-id
                                           :function   :on-message-input-change
                                           :parameters {:message chat-text}
-                                          :context    {:data data
-                                                       :from (get-in db [:local-storage current-chat-id])}}))))
+                                          :context    {:data (get local-storage current-chat-id)
+                                                       :from current-account-id}}))))
 
 (defn set-chat-input-text
   "Set input text for current-chat and updates suggestions relevant to current input.
