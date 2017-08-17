@@ -6,7 +6,8 @@
             [status-im.test.handlers]
             [status-im.test.utils.utils]
             [status-im.test.utils.money]
-            [status-im.test.utils.clocks]))
+            [status-im.test.utils.clocks]
+            [status-im.test.utils.signing-phrase.core]))
 
 (enable-console-print!)
 
@@ -22,4 +23,5 @@
            'status-im.test.handlers
            'status-im.test.utils.utils
            'status-im.test.utils.money
-           'status-im.test.utils.clocks)
+           'status-im.test.utils.clocks
+           'status-im.test.utils.signing-phrase.core)
