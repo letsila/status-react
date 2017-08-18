@@ -159,7 +159,7 @@
               :to           "me"}])
   (dispatch [:received-message
              {:message-id   const/signing-phrase-message-id
-              :content      "Here is your signing phrase, keep it safe!"
+              :content      (label :t/here-is-your-signing-phrase)
               :content-type text-content-type
               :outgoing     false
               :chat-id      console-chat-id
