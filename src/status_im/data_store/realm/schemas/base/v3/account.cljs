@@ -28,7 +28,7 @@
     (dotimes [i (.-length accounts)]
       (let [account (aget accounts i)
             phrase      (aget account "signing-phrase")]
-        (when-not phrase
+        (when (empty? phrase)
           (log/debug (js->clj account))
           (aset account "signing-phrase" "some newy word"))))))
 

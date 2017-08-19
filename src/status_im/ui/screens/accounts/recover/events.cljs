@@ -8,12 +8,14 @@
             [status-im.utils.handlers :as u]
             [status-im.utils.gfycat.core :refer [generate-gfy]]
             [status-im.protocol.core :as protocol]
-            [status-im.ui.screens.navigation :as nav]))
+            [status-im.ui.screens.navigation :as nav]
+            [status-im.utils.signing-phrase.core :as signing-phrase]))
 
 (defn account-recovered [result]
   (let [data       (json->clj result)
         public-key (:pubkey data)
         address    (:address data)
+        phrase     (signing-phrase/generate)
         {:keys [public private]} (protocol/new-keypair!)
         account    {:public-key          public-key
                     :address             address
@@ -21,7 +23,8 @@
                     :photo-path          (identicon public-key)
                     :updates-public-key  public
                     :updates-private-key private
-                    :signed-up?          true}]
+                    :signed-up?          true
+                    :signing-phrase      phrase}]
     (log/debug "account-recovered")
     (when-not (str/blank? public-key)
       (dispatch [:set-in [:recover :passphrase] ""])
