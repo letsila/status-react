@@ -46,14 +46,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Need microphone access for Instabug and Audio Messages</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need to access your camera</string>
 	<key>NSContactsUsageDescription</key>
 	<string>We need to access your contacts</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need microphone access for Instabug and Audio Messages</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to access your photo storage to give you an ability to select photos</string>
 	<key>UIAppFonts</key>
@@ -76,6 +76,10 @@
 		<string>MaterialIcons.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

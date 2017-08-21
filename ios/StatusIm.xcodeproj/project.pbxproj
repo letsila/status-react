@@ -32,6 +32,7 @@
 		213311F38CA74CE280FD09AD /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F6ED6465184513A082652B /* libRNI18n.a */; };
 		22118DE1207A419FBFE7B62D /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD48A32459B64E96843BB238 /* libRealmReact.a */; };
 		25DC9C9DC25846BD8D084888 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9A886A2CB448B1ABA0EB62 /* libc++.tbd */; };
+		3619BBD89F8C468890C70A74 /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7BDE08550407EABE24BFD /* libRNFIRMessaging.a */; };
 		3E15DFEC1F6F4D7CAE088F49 /* libTcpSockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A4E93F6B154AEFA3485B45 /* libTcpSockets.a */; };
 		4D3D740D5EFA4F8592B048D7 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1CD4C3D1254774ACCAE4E8 /* libBVLinearGradient.a */; };
 		4FFAE7B0414A463991039A2E /* libRNRandomBytes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C55F15EB4D4DAF9202A662 /* libRNRandomBytes.a */; };
@@ -244,6 +245,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
+		};
+		929C077C1F4B13FC00C1062A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEA5BD8A9DF246E4922444EE /* RNFIRMessaging.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFIRMessaging;
 		};
 		9E3AB6C51D87DA2B008846B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -489,6 +497,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8AE71EE8751F4652B13BFE83 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		8B9A886A2CB448B1ABA0EB62 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		929C07D81F4B187900C1062A /* StatusIm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = StatusIm.entitlements; path = StatusIm/StatusIm.entitlements; sourceTree = "<group>"; };
 		9E0B01A01DDC5DA7002B0359 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
 		9E3AB6B21D87DA2A008846B4 /* React-Native-Webview-Bridge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "React-Native-Webview-Bridge.xcodeproj"; path = "../node_modules/react-native-webview-bridge/ios/React-Native-Webview-Bridge.xcodeproj"; sourceTree = "<group>"; };
 		9E54D5FD1F17A5DB009F0C16 /* libTestFairy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFairy.a; sourceTree = "<group>"; };
@@ -511,6 +520,7 @@
 		B2F2D1BB1D9D531B00B7B453 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = StatusIm/Images.xcassets; sourceTree = "<group>"; };
 		B3B19223008342D096AA356E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C2A4E93F6B154AEFA3485B45 /* libTcpSockets.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libTcpSockets.a; sourceTree = "<group>"; };
+		C7E7BDE08550407EABE24BFD /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
 		CD48A32459B64E96843BB238 /* libRealmReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRealmReact.a; sourceTree = "<group>"; };
 		CE4E31B21D8695250033ED64 /* Statusgo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Statusgo.framework; path = "../modules/react-native-status/ios/RCTStatus/Statusgo.framework"; sourceTree = "<group>"; };
 		CEB0E2659D1A4F5FA842057A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -520,6 +530,7 @@
 		F3548417D8DA4362B6796A54 /* RNInstabug.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNInstabug.xcodeproj; path = "../node_modules/instabug-reactnative/ios/RNInstabug.xcodeproj"; sourceTree = "<group>"; };
 		F9238D6B1E5F055900C047B9 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		FC1CBCFE6C906043D6CCEEE1 /* libPods-StatusImTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StatusImTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEA5BD8A9DF246E4922444EE /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,6 +586,7 @@
 				9EE470511ED0079E0048FD10 /* Mapbox.framework in Frameworks */,
 				9EE470541ED007E10048FD10 /* libRCTMapboxGL.a in Frameworks */,
 				9EF0836B1F3B53AB00876A8F /* libReactNativeConfig.a in Frameworks */,
+				3619BBD89F8C468890C70A74 /* libRNFIRMessaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +673,7 @@
 		13B07FAE1A68108700A75B9A /* StatusIm */ = {
 			isa = PBXGroup;
 			children = (
+				929C07D81F4B187900C1062A /* StatusIm.entitlements */,
 				9E54D5FD1F17A5DB009F0C16 /* libTestFairy.a */,
 				9E54D5FE1F17A5DB009F0C16 /* TestFairy.h */,
 				9E54D5FF1F17A5DB009F0C16 /* upload-dsym.sh */,
@@ -872,6 +885,7 @@
 				439B6B4B407A4E2AACAFE5BE /* RCTStatus.xcodeproj */,
 				5E5A7625B76441D984EA8C0D /* RCTImageResizer.xcodeproj */,
 				F3548417D8DA4362B6796A54 /* RNInstabug.xcodeproj */,
+				FEA5BD8A9DF246E4922444EE /* RNFIRMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -909,6 +923,14 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* StatusIm.app */,
 				00E356EE1AD99517003FC87E /* StatusImTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		929C07531F4B13FC00C1062A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				929C077D1F4B13FC00C1062A /* libRNFIRMessaging.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1068,6 +1090,14 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = DTX7Z4U3YA;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1178,6 +1208,10 @@
 				{
 					ProductGroup = 20B7D1251D3F74CD00B70F14 /* Products */;
 					ProjectRef = F090E261B9854867A728CE4F /* RealmReact.xcodeproj */;
+				},
+				{
+					ProductGroup = 929C07531F4B13FC00C1062A /* Products */;
+					ProjectRef = FEA5BD8A9DF246E4922444EE /* RNFIRMessaging.xcodeproj */;
 				},
 				{
 					ProductGroup = 20B7D1161D3F74CD00B70F14 /* Products */;
@@ -1376,6 +1410,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		929C077D1F4B13FC00C1062A /* libRNFIRMessaging.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFIRMessaging.a;
+			remoteRef = 929C077C1F4B13FC00C1062A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		9E3AB6C61D87DA2B008846B4 /* libReact-Native-Webview-Bridge.a */ = {
@@ -1630,7 +1671,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		49A69B853BD9751F84878340 /* [CP] Check Pods Manifest.lock */ = {
@@ -1648,7 +1689,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		967469AF8BA27D5CEC47B13C /* [CP] Copy Pods Resources */ = {
@@ -1797,6 +1838,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StatusIm.app/StatusIm";
@@ -1835,6 +1877,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StatusIm.app/StatusIm";
@@ -1848,6 +1891,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = StatusIm/StatusIm.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DTX7Z4U3YA;
@@ -1876,6 +1920,7 @@
 					"$(SRCROOT)/../node_modules/instabug-reactnative/ios/RNInstabug",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = StatusIm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1902,6 +1947,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = StatusIm/StatusIm.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = DTX7Z4U3YA;
@@ -1930,6 +1976,7 @@
 					"$(SRCROOT)/../node_modules/instabug-reactnative/ios/RNInstabug",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 					"$(SRCROOT)/../node_modules/react-native-config/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
 				);
 				INFOPLIST_FILE = StatusIm/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
