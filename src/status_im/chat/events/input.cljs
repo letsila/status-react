@@ -53,8 +53,8 @@
   with at least :db key.
   When `:append?` is false or not provided, resets the current chat input with input text,
   otherwise input text is appended to the current chat input."
-  [{:keys [current-chat-id chats] :as db} new-input & {:keys [append?]}]
-  (let [current-input (get-in chats [current-chat-id :input-text])
+  [{:keys [current-chat-id] :as db} new-input & {:keys [append?]}]
+  (let [current-input (get-in db [:chats current-chat-id :input-text])
         new-db        (assoc-in db
                                 [:chats current-chat-id :input-text]
                                 (input-model/text->emoji (if append?
@@ -66,6 +66,11 @@
   "Set input metadata for current-chat. Takes db and metadata and returns updated db."
   [{:keys [current-chat-id] :as db} metadata]
   (assoc-in db [:chats current-chat-id :input-metadata] data))
+
+(defn set-chat-seq-arg-input-text
+  "Sets input text for current sequential argument in active chat"
+  [{:keys [current-chat-id] :as db} text]
+  (assoc-in db [:chats current-chat-id :seq-argument-input-text] text))
 
 ;;;; Coeffects
 
@@ -189,22 +194,22 @@
    (let [command     (-> (get-in db [:chats current-chat-id :input-text])
                          (input-model/split-command-args))
          seq-params? (-> (input-model/selected-chat-command db current-chat-id)
-                         (get-in [:command :sequential-params]))
-         event-to-dispatch (if seq-params?
-                             [:set-chat-seq-arg-input-text arg]
-                             (let [arg          (str/replace arg (re-pattern const/arg-wrapping-char) "")
-                                   command-name (first command)
-                                   command-args (into [] (rest command))
-                                   command-args (if (< index (count command-args))
-                                                  (assoc command-args index arg)
-                                                  (conj command-args arg))]
-                               [:set-chat-input-text (str command-name
-                                                          const/spacing-char
-                                                          (input-model/join-command-args command-args)
-                                                          (when (and move-to-next?
-                                                                     (= index (dec (count command-args))))
-                                                            const/spacing-char))]))]
-     {:dispatch event-to-dispatch})))
+                         (get-in [:command :sequential-params]))]
+     (if seq-params?
+       {:db (set-chat-seq-arg-input-text db arg)}
+       (let [arg          (str/replace arg (re-pattern const/arg-wrapping-char) "")
+             command-name (first command)
+             command-args (into [] (rest command))
+             command-args (if (< index (count command-args))
+                            (assoc command-args index arg)
+                            (conj command-args arg))
+             input-text   (str command-name
+                               const/spacing-char
+                               (input-model/join-command-args command-args)
+                               (when (and move-to-next?
+                                          (= index (dec (count command-args))))
+                                 const/spacing-char))]
+         (set-chat-input-text db input-text))))))
 
 (register-handler-fx
  :chat-input-focus
@@ -452,24 +457,25 @@
 (register-handler-db
  :set-chat-seq-arg-input-text
  [trim-v]
- (fn [{:keys [current-chat-id] :as db} [text chat-id]]
-   (let [chat-id (or chat-id current-chat-id)]
-     (assoc-in db [:chats chat-id :seq-argument-input-text] text))))
+ (fn [db [text]]
+   (set-chat-seq-arg-input-text db text)))
 
 (register-handler-fx
  :update-text-selection
  [trim-v]
  (fn [{{:keys [current-chat-id] :as db} :db} [selection]]
    (let [input-text (get-in db [:chats current-chat-id :input-text])
-         command    (input-model/selected-chat-command db current-chat-id input-text)]
-     (cond-> {:dispatch-n [[:set-chat-ui-props {:selection selection}]
-                           [:load-chat-parameter-box (:command command)]]}
+         command    (input-model/selected-chat-command db current-chat-id input-text)
+         fx (cond-> {:dispatch-n [[:set-chat-ui-props {:selection selection}]
+                                  [:load-chat-parameter-box (:command command)]]}
 
-       (and (= selection (+ (count const/command-char)
-                            (count (get-in command [:command :name]))
-                            (count const/spacing-char)))
-            (get-in command [:command :sequential-params]))
-       (update :dispatch-n conj [:chat-input-focus :seq-input-ref])))))
+              (and (= selection (+ (count const/command-char)
+                                   (count (get-in command [:command :name]))
+                                   (count const/spacing-char)))
+                   (get-in command [:command :sequential-params]))
+              (update :dispatch-n conj [:chat-input-focus :seq-input-ref]))]
+     (log/debug (str "FX: " fx))
+     fx)))
 
 (register-handler-fx
  :select-prev-argument
