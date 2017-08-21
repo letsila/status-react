@@ -1,5 +1,6 @@
 (ns status-im.data-store.realm.schemas.base.v3.account
-  (:require [taoensso.timbre :as log]))
+  (:require [taoensso.timbre :as log]
+            [status-im.utils.signing-phrase.core :as signing-phrase]))
 
 (def schema {:name       :account
              :primaryKey :address
@@ -30,5 +31,5 @@
             phrase      (aget account "signing-phrase")]
         (when (empty? phrase)
           (log/debug (js->clj account))
-          (aset account "signing-phrase" "some newy word"))))))
+          (aset account "signing-phrase" (signing-phrase/generate)))))))
 
